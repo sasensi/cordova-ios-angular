@@ -1,27 +1,19 @@
-# CordovaIosAngular
+## Introduction
+This repository demonstrates an issue that I have running an `Angular` application (with routing) in `Cordova`, on `IOS` platform using `WkWebView`.  
+Migrating from `UIWebView` to `WkWebView` is required by `Apple` which will soon no longer accept apps using `UIWebView`.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
+## Reproduce the issue
+ 1. clone repository: `git clone https://github.com/sasensi/cordova-ios-angular.git`
+ 2. move to repository directory: `cd cordova-ios-angular`
+ 3. install dependencies: `npm i`
+ 4. create cordova project: `cordova create cordova com.demo.app DemoApp`
+ 5. build Angular app: `npm run build`
+ 6. move to cordova directory: `cd cordova`
+ 7. add WkWebView plugin: `cordova plugin add cordova-plugin-wkwebview-engine`
+ 8. add `<preference name="WKWebViewOnly" value="true"/>` in `./config.xml`
+ 9. add cordova IOS platform: `cordova platform add ios`
+10. open `platforms/ios/DemoApp.xcodeproj` in XCode (10.1)
+11. run with `IPhone X` simulator
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Test with UIWebView
+Follow previous steps but skip `7.` and `8.`.
